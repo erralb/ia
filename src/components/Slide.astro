@@ -1,0 +1,29 @@
+---
+export interface Props {
+  centered?: boolean
+  highlight?: boolean
+  large?: boolean
+  title?: string
+  hide?: boolean
+}
+
+const { centered, highlight, large, title, hide} = Astro.props
+
+import { Image } from "astro:assets";
+import slidesIcon from "../assets/slides.svg";
+
+---
+<!-- <a
+  id="presentation-button"
+  class="presentation-hidden presentation-trigger"
+  type="button"
+  title="Mode présentation"
+>
+  <Image src={slidesIcon} alt="Icône Présentation" />
+</a> -->
+
+
+<section class="presentation-slide centered large" class:list={{ centered, highlight, large, hide }}>
+  {title? <h1 class="presentation-slide-title">{title}</h1> : null}
+  <slot />
+</section>

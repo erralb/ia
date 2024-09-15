@@ -1,36 +1,82 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash
-hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
-  actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+title: Intelligence Artificielle
+description: Algorithmes de recherches, A*, Minimax, Alpha-Beta, Résolutions de CSP, etc.
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import Slide from "/src/components/Slide.astro";
 
-## Next steps
+<Slide>
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+:::note[Objectif de ce cours]
+Connaître certains paradigmes, approches et techniques en **Intelligence Artificielle**
+:::
+
+</Slide>
+
+## Introduction
+
+Dans ce cours, nous allons découvrir les bases de l'Intelligence Artificielle (IA), et comment elle peut être utilisée pour résoudre des problèmes complexes.
+
+Que vous soyez débutant ou que vous ayez déjà une certaine expérience dans le domaine, ce cours vous aidera à approfondir vos compétences et votre expertise en IA.
+
+<Slide>
+
+Dans ce cours, nous allons aborder :
+
+* Les algorithmes de **recherche** : BFS, DFS, A*, Minimax, Alpha-Beta, etc.
+* Les algorithmes de résolution de problèmes (**CSP**)
+* La logique de premier ordre (**First Order Logic**)
+* Les sytèmes **Multi-Agents**
+
+</Slide>
+<Slide>
+
+:::danger[Attention]
+Le **Machine Learning** ne sera pas étudié pendant ce cours, l’idée ici est d'aborder les techniques historiques de l’IA
+:::
+
+> Cependant, comprendre ces techniques historique permettra une compréhension plus aisée des modèles utilisés pour le machine learning et les modèles d’interaction du langage.
+
+
+</Slide>
+<Slide>
+
+## Compétences visées
+
+* Comprendre les bases de l'Intelligence Artificielle
+* Savoir implémenter les algorithmes de recherche
+* Savoir comment résoudre des problèmes de contraintes
+* Comprendre les systèmes multi-agents
+* Développer des compétences en programmation à travers le développement d'un jeu utilisant les techniques étudiées
+
+</Slide>
+<Slide>
+## Organisation du cours
+
+#### Cours
+
+* Module de 24h : CM, TD et TP mélangés
+* Comptez au moins 48h de travail personnel
+
+#### Evaluation
+
+* 1 projet noté en trinôme (coefficient 50%)
+* 1 examen écrit (coefficient 50%)
+
+Session de rattrapage : 1 examen écrit (coefficient 70%, 30% de la note du Projet étant reportée)
+
+</Slide>
+<Slide>
+
+## Démarrage
+
+import { LinkCard } from '@astrojs/starlight/components';
+
+<LinkCard
+  title="Accéder au cours"
+  description="Avec une première introduction aux concepts de l'Intelligence Artificielle"
+  href="/ia/01-concepts/01-introduction/"
+/>
+
+
+</Slide>
