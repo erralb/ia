@@ -3,6 +3,11 @@
     --sl-text-5xl: 2rem;
   }
   
+  .sl-markdown-content iframe {
+    width: 100%;
+    min-height: 75vh;
+  }
+  
   .sl-markdown-content h1,
   .sl-markdown-content h2,
   .sl-markdown-content h3,

@@ -29,27 +29,27 @@ export default defineConfig({
 			  ThemeSelect: './src/components/ThemeSelect.astro',
 			},
 			sidebar: [
-				{
-					label: '1. Introduction',
-					slug: '01-introduction',
-				},
 				// {
 				// 	label: '1. Introduction',
-				// 	collapsed: true,
-				// 	autogenerate: {
-				// 		directory: '01-concepts',
-				// 	}
-				// 	// collapsed: true,
-				// 	// items: [
-				// 	// 	{
-				// 	// 		label: '1. Définitions et historique',
-				// 	// 		collapsed: true,
-				// 	// 		autogenerate: {
-				// 	// 			directory: '01-concepts',
-				// 	// 		}
-				// 	// 	},
-				// 	// ]
+				// 	slug: '01-introduction',
 				// },
+				{
+					label: '1. Introduction',
+					collapsed: true,
+					autogenerate: {
+						directory: '01-intro',
+					}
+					// collapsed: true,
+					// items: [
+					// 	{
+					// 		label: '1. Définitions et historique',
+					// 		collapsed: true,
+					// 		autogenerate: {
+					// 			directory: '01-concepts',
+					// 		}
+					// 	},
+					// ]
+				},
 				{
 					label: '2. Recherche Heuristique',
 					collapsed: true,
