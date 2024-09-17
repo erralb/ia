@@ -1,0 +1,17 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+import Presentation from './Presentation.astro';
+---
+
+<h4 class="onlyPrint">UGA - Intelligence Artificielle - Pierre Blarre</h4>
+
+<div class="pageTitle">
+
+<Default {...Astro.props}>
+	<slot />
+</Default>
+
+<Presentation />
+
+</div>

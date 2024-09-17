@@ -14,7 +14,7 @@ export default defineConfig({
 	// base: import.meta.env.BASE,
 	integrations: [
 		starlight({
-			title: 'Intelligence Artificelle',
+			title: 'Intelligence Artificielle',
 			logo: {
 			  src: './src/assets/logo.svg',
 			},
@@ -26,7 +26,7 @@ export default defineConfig({
 				github: 'https://github.com/erralb/ia'
 			},
 			components: {
-			  ThemeSelect: './src/components/ThemeSelect.astro',
+			  PageTitle: './src/components/PageTitle.astro',
 			},
 			sidebar: [
 				// {
