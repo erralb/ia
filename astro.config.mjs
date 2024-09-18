@@ -29,6 +29,10 @@ export default defineConfig({
 			  PageTitle: './src/components/PageTitle.astro',
 			},
 			sidebar: [
+				{
+					label: 'Informations',
+					slug: '00-infos/planning-2024-2025',
+				},
 				// {
 				// 	label: '1. Introduction',
 				// 	slug: '01-introduction',

@@ -10,7 +10,7 @@ export interface Props {
 const { title, headers, rows, caption, footer } = Astro.props;
 ---
 
-<table>
+<table class="tableComponent">
   {caption ? <caption>{caption}</caption> : null}
   <thead>
     <tr>
@@ -25,7 +25,17 @@ const { title, headers, rows, caption, footer } = Astro.props;
       rows?.map((value) => (
         <tr>
           {value.map((cell) => (
-            <td>{cell}</td>
+            Array.isArray(cell) ? (
+              <td>
+                <ul>
+                  {cell.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </td>
+            ) : (
+              <td>{cell}</td>
+            )
           ))}
         </tr>
       ))
@@ -43,3 +53,75 @@ const { title, headers, rows, caption, footer } = Astro.props;
     ) : null
   }
 </table>
+
+<style>
+table.tableComponent {
+  border-collapse: collapse;
+  font-family: sans-serif;
+  margin-bottom: 40px;
+  max-width: 100%;
+  width: 100%;
+  
+  caption {
+  caption-side: bottom;
+  padding: 10px;
+  font-weight: bold;
+  }
+  
+  thead,
+  tfoot {
+    background-color: rgb(95, 95, 95);
+  }
+  
+  thead>tr:nth-child(1) th,
+  tfoot>tr:nth-child(1) th {
+    text-transform: uppercase;
+    color: white;
+  }
+  
+  thead>tr:nth-child(2) th,
+  tfoot>tr:nth-child(2) th {
+    background-color: rgb(239, 239, 239);
+  }
+  
+  tbody>tr:nth-of-type(even) {
+    background-color: rgb(248, 248, 248);
+  }
+  
+  th {
+    text-align: center !important;
+  }
+  
+  th,
+  td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
+  }
+
+  td {
+    text-align: left !important;
+    ul {
+      padding-left: 0px;
+      list-style-type: none;
+
+      li {
+        margin: 0;
+      }
+    }
+  }
+  
+  :is(th:first-child, td:first-child):not(:where(.not-content *)),
+  :is(th:last-child, td:last-child):not(:where(.not-content *)) {
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+  }
+} 
+  
+@media print {
+  
+  table.tableComponent { 
+    break-inside: avoid; 
+  } 
+} 
+  
+</style>
