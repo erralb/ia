@@ -61,6 +61,13 @@ export default defineConfig({
 						directory: '02-recherche',
 					}
 				},
+				{
+					label: '3. Constraint Satisfaction Problems',
+					collapsed: true,
+					autogenerate: {
+						directory: '03-csp',
+					}
+				},
 			],
 		}),
 	],
