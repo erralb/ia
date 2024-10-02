@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import remarkMermaid from 'remark-mermaidjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -68,7 +69,17 @@ export default defineConfig({
 						directory: '03-csp',
 					}
 				},
+				// {
+				// 	label: '4. Travaux Pratiques',
+				// 	collapsed: true,
+				// 	autogenerate: {
+				// 		directory: '04-tp-graphes',
+				// 	}
+				// },
 			],
 		}),
 	],
+	markdown: {
+		remarkPlugins: [remarkMermaid],
+	},
 });
