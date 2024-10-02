@@ -1,8 +1,3 @@
-/**
- * Main class
- */
-
-
 public class Main {
     public static void main(String[] args) {
         //création de sommets
@@ -30,6 +25,15 @@ public class Main {
         //création du graphe
         Graphe g = new Graphe(new Sommet[] { s1, s2, s3, s4, s5 });
         System.out.println(g);
+
+
+        // Résultat affiché dans la console :
+
+        // Sommet 1 : 2 3 
+        // Sommet 2 : 1 2 3 4 
+        // Sommet 3 : 1 2 4 
+        // Sommet 4 : 2 3 5 
+        // Sommet 5 : 4 
     }
 }
 

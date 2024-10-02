@@ -16,34 +16,43 @@ class Graphe {
     }
 
     toString(): string {
-        return this.sommets.map(s => `${s.id}: [${s.voisins.map(v => v.id).join(', ')}]`).join('\n');
+        return this.sommets
+                    .map(s => `${s.id}: [${s.voisins.map(v => v.id).join(', ')}]`)
+                    .join('\n');
     }
 }
 
-let sommet0 = new Sommet(0);
-let sommet1 = new Sommet(1);
-let sommet2 = new Sommet(2);
-let sommet3 = new Sommet(3);
-let sommet4 = new Sommet(4);
+let s0 = new Sommet(0);
+let s1 = new Sommet(1);
+let s2 = new Sommet(2);
+let s3 = new Sommet(3);
+let s4 = new Sommet(4);
 
-sommet0.voisins.push(sommet1);
-sommet0.voisins.push(sommet3);
+s0.voisins.push(s1);
+s0.voisins.push(s3);
 
-sommet1.voisins.push(sommet0);
-sommet1.voisins.push(sommet2);
+s1.voisins.push(s0);
+s1.voisins.push(s2);
 
-sommet2.voisins.push(sommet1);
-sommet2.voisins.push(sommet2);
-sommet2.voisins.push(sommet3);
-sommet2.voisins.push(sommet4);
+s2.voisins.push(s1);
+s2.voisins.push(s2);
+s2.voisins.push(s3);
+s2.voisins.push(s4);
 
-sommet3.voisins.push(sommet0);
-sommet3.voisins.push(sommet2);
+s3.voisins.push(s0);
+s3.voisins.push(s2);
 
-sommet4.voisins.push(sommet2);
+s4.voisins.push(s2);
 
 let graphe = new Graphe();
 
-graphe.sommets = [sommet0, sommet1, sommet2, sommet3, sommet4];
+graphe.sommets = [s0, s1, s2, s3, s4];
 
 console.log(graphe.toString());
+
+// Résultat affiché dans la console :
+// 0: [1, 3]
+// 1: [0, 2]
+// 2: [1, 2, 3, 4]
+// 3: [0, 2]
+// 4: [2]

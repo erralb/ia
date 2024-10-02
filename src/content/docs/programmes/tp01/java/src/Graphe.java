@@ -1,7 +1,3 @@
-/**
- * Classe Graphe
- */
-
 public class Graphe {
     private Sommet[] sommets;
 

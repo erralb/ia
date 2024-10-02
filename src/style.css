@@ -50,7 +50,11 @@
 }
 
 .sl-markdown-content li {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.sl-markdown-content li {
+  margin-bottom: 1.1rem;
 }
 
 .sl-markdown-content strong {
