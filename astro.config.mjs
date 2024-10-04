@@ -76,13 +76,13 @@ export default defineConfig({
 						directory: '04-tp-graphes',
 					}
 				},
-				// {
-				// 	label: 'Projet',
-				// 	collapsed: true,
-				// 	autogenerate: {
-				// 		directory: 'projet',
-				// 	}
-				// },
+				{
+					label: 'Projet',
+					collapsed: true,
+					autogenerate: {
+						directory: 'projet',
+					}
+				},
 			],
 		}),
 	],
