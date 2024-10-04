@@ -79,6 +79,12 @@ _Pensez bien à mettre en place une file pour le BFS et une pile pour le DFS._
 Pour tester votre code, vous pouvez créer un graphe simple et afficher les sommets visités lors du parcours.
 :::
 
+:::danger[Attention]
+Si vous utilisez **Javascript** ou **Typescript**, vous _devez_ utiliser de la programmation asynchrone ([await/async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)) pour le parcours du graphe.
+
+En effet, Javascript n'attend pas la fin de l'exécution d'une fonction avant de passer au prochain tour de la boucle, ce qui peut poser problème pour les parcours de graphes (duplication d'exploration de sommets ou mauvaise exploration).
+:::
+
 ## Exercice 6
 
 En utilisant les objets `Node` et `Graph` définis dans l'exercice précédent :
