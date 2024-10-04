@@ -39,10 +39,10 @@
   border-top: 3px solid rgb(160, 160, 160);
 }
 
-.sl-markdown-content h2:first-child {
+/* .sl-markdown-content h2:first-child {
   border-top: none;
   margin-top: 0;
-}
+} */
 
 .sl-markdown-content h3,
 .sl-markdown-content h4 {
@@ -81,6 +81,19 @@
   gap: 10%;
   align-items: flex-start;
   max-width: 100%;
+}
+
+.sl-markdown-content .flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  max-width: 100%;
+  margin: 40px 20px;
+}
+
+.sl-markdown-content .flex>div {
+  margin-top: 0;
 }
 
 .presentation-slide.hide {

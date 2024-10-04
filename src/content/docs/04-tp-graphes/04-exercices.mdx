@@ -1,0 +1,113 @@
+---
+title: "Exercices"
+---
+
+:::tip[Objectifs]
+Il est temps de passer à la pratique avec une série d'exercices pour vous entraîner à manipuler les graphes.
+
+Vous pouvez vous aider d'internet pour trouver des ressources et des exemples, mais ne copiez pas de code sans le comprendre... 
+
+L'objectif ici est de _comprendre comment programmer les graphes_, peu importe si votre code n'est pas parfaitement optimisé.
+:::
+
+:::note[Consignes]
+Pour chaque exercice, vous devez :
+* écrire du code de qualité **et commenté**
+* tester votre solution avec des exemples
+* organiser votre code sous formes de projets et placer les classes et fonctions dans des fichiers séparés
+* utiliser Git pour versionner votre code
+:::
+
+## Exercice 1
+
+En utilisant le langage de programmation de votre choix, implémentez une fonction qui :
+
+* prend en paramètre une matrice d'adjacence
+* un sommet
+* et qui retourne la liste des voisins de ce sommet
+
+_Vous pouvez représenter la matrice d'adjacence sous forme de tableau à deux dimensions et les sommets sous forme de coordonnées._
+
+## Exercice 2
+
+En utilisant le langage de programmation de votre choix, implémentez une fonction qui :
+
+* prend en paramètre une matrice d'adjacence
+* et qui retourne la liste des voisins de chaque sommet
+
+## Exercice 3
+
+En utilisant le langage de programmation de votre choix, implémentez une fonction qui :
+
+* prend en paramètre une liste d'adjacence (table de hachage)
+* un sommet
+* et qui retourne la liste des voisins de ce sommet
+
+_Vous pouvez utiliser des `String` pour représenter les identifiants des sommets pour vous forcer à utiliser table de hachage pour représenter la liste d'adjacence._
+
+## Exercice 4
+
+En utilisant le langage de programmation de votre choix :
+
+1. implémentez une classe d'objet `Node` qui représente un sommet d'un graphe **orienté** avec : 
+
+    * un attribut `id` pour identifier le sommet
+    * un attribut `neighbors` pour stocker les voisins du sommet
+    * un attribut `parent` pour stocker le parent du sommet
+    * une méthode pour ajouter un voisin
+    * une méthode pour afficher les voisins du sommet
+
+2. implémentez une classe d'objet `Graph` qui représente un graphe **orienté** avec :
+
+    * un attribut `nodes` pour stocker les sommets du graphe
+    * une méthode pour ajouter un sommet
+    * une méthode pour ajouter une arête entre deux sommets
+    * une méthode pour afficher les sommets et les arêtes du graphe
+
+3. Testez vos classes !
+
+## Exercice 5
+
+En utilisant les classes d'objets `Node` et `Graph` définies dans l'exercice précédent :
+
+* implémentez une méthode pour parcourir le graphe en largeur (BFS)
+* implémentez une méthode pour parcourir le graphe en profondeur (DFS)
+
+_Pensez bien à mettre en place une file pour le BFS et une pile pour le DFS._
+
+:::tip[Conseil]
+Pour tester votre code, vous pouvez créer un graphe simple et afficher les sommets visités lors du parcours.
+:::
+
+## Exercice 6
+
+En utilisant les objets `Node` et `Graph` définis dans l'exercice précédent :
+
+* ajoutez la fonctionnalité de pouvoir définir un début et un but à atteindre dans le graphe
+* implémentez une méthode pour tracer le chemin trouvé entre deux sommets du graphe
+
+_L'idée est d'utiliser un graphe orienté. Chaque noeud exploré aura un attribut `parent` qui pointe vers le noeud parent. On pourra ensuite remonter les parents pour retrouver le chemin._
+
+## Exercice 7
+
+Dupliquez votre code précédent dans un nouveau projet puis :
+
+* créez une classe `GraphGrid` pour représenter une grille (lattice graph), qui hérite de votre classe `Graph`
+    * Redéfinissez le constructeur pour générer une grille de taille `n x m` avec des arêtes entre les sommets voisins
+    * ajoutez une méthode pour ajouter des obstacles dans la grille (des sommets inaccessibles, autrement dit des nodes avec un attribut `mur` à `true`)
+    * ajoutez une méthode pour trouver les voisins d'un sommet dans la grille (en évitant les obstacles et les bords)
+    * ajoutez une méthode pour afficher la grille
+* créez une grille de taille 5x5 et testez vos méthodes
+
+## Exercice 8
+
+* modifiez la classe `Node` pour ajouter un attribut `weight` qui représente le poids (le coût) pour passer par ce sommet
+* implémentez l'algorithme de `Dijkstra` pour explorer le graphe en fonction des poids des arêtes (c.à.d que l'on commencera par explorer les sommets les plus légers en premier pendant le parcours)
+
+## Exercice 9
+
+En utilisant votre code précédent :
+
+* ajoutez un attribut `heuristic` à la classe `Node` pour représenter l'heuristique du sommet
+* implémentez l'algorithme `A*` pour trouver le chemin le plus court entre deux sommets du graphe avec l'utilisation d'une heuristique
+* utilisez d'abord la distance de Manhattan comme heuristique, puis testez avec d'autres heuristiques comme la distance euclidienne

@@ -69,11 +69,18 @@ export default defineConfig({
 						directory: '03-csp',
 					}
 				},
+				{
+					label: '4. Travaux Pratiques 1',
+					collapsed: true,
+					autogenerate: {
+						directory: '04-tp-graphes',
+					}
+				},
 				// {
-				// 	label: '4. Travaux Pratiques',
+				// 	label: 'Projet',
 				// 	collapsed: true,
 				// 	autogenerate: {
-				// 		directory: '04-tp-graphes',
+				// 		directory: 'projet',
 				// 	}
 				// },
 			],
