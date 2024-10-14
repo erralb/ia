@@ -28,7 +28,6 @@ jobs:
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
       - run: npx playwright install --with-deps
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
