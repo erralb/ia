@@ -77,10 +77,17 @@ export default defineConfig({
 					}
 				},
 				{
-					label: 'Projet',
+					label: '5. Projet',
 					collapsed: true,
 					autogenerate: {
-						directory: 'projet',
+						directory: '05-projet',
+					}
+				},
+				{
+					label: '6. Travaux Pratiques 2',
+					collapsed: true,
+					autogenerate: {
+						directory: '06-tp-projet',
 					}
 				},
 			],

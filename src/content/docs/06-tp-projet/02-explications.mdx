@@ -1,0 +1,150 @@
+---
+title: Explications du code
+sidebar:
+    label: Explications
+---
+
+Le code proposé est un projet Javascript, utilisant uniquement du Javascript, du HTML et du CSS.
+
+Le code est commenté pour vous permettre de comprendre son fonctionnement et de le modifier facilement.
+
+Ce code n'est pas forcément le plus optimisé, mais il a été conçu pour être simple et compréhensible, afin de vous permettre de le modifier et de l'adapter à vos besoins.
+
+Il n'utilise pas de bibliothèques externes ou de frameworks, ce qui permet de programmer en Vanilla Javascript sans avoir à vous former sur des outils supplémentaires.
+
+La seule spécificité de ce projet est l'utilisation des fichiers avec l'extension `.mjs` (Javascript Modules), permettant de séparer les différentes parties du code et d'utiliser la programmation asynchrone de manière plus simple. Cela dit, le code reste du Javascript classique, seules les extenions des fichiers changent.
+
+## Classes d'objets
+
+Le projet utilise des classes pour représenter les différents objets manipulés. 
+
+Voici les classes utilisées :
+
+### Node
+
+La classe `Node` représente un noeud dans un graphe. 
+
+Elle permet de stocker les informations du noeud (identifiant, poids, valeur de l'heuristique, voisins, enfants, parent, etc.), ainsi que de réaliser des opérations sur le noeud (mise à jour des informations, etc.).
+
+### NodeGrid
+
+La classe `NodeGrid` hérite de la classe `Node`, en ajoutant des informations spécifiques à une grille (coordonnées, etc.).
+
+### Graph
+
+La classe `Graph` représente un graphe, avec des noeuds (objets `Node`) et des arêtes. 
+
+Elle permet de stocker les noeuds et les arêtes, ainsi que de réaliser des opérations sur le graphe (recherche de noeuds, ajout d'arêtes, etc.).
+
+Les graphes peuvent être orientés ou non orientés, et peuvent être pondérés ou non pondérés.
+
+### Grid
+
+La classe `Grid` hérite de la classe `Graph` et permet de représenter une grille d'une taille donnée (2D, longeur * largeur).
+
+Elle permet de stocker des object `NodeGrid`, ainsi que de réaliser des opérations sur la grille (recherche de voisins d'une node, ajout d'une node, etc.).
+
+### GridDOM
+
+La classe `GridDOM` hérite de la classe `Grid` et elle permet de représenter la grille dans le DOM, sous forme d'un tableau HTML.
+
+C'est la classe `interface graphique de la grille` du projet.
+
+Elle permet de manipuler les éléments HTML de la grille, ainsi que de réaliser des opérations sur la grille (mise à jour des noeuds, détection d'évenements comme des clics, etc.).
+
+### Gestion des événements
+
+Le fichier `app/events.mjs` contient 2 classes permettant des générer les événements de l'application :
+
+- `NodeEvent` : permet de générer des événements liés à un noeud (mise à jour d'un noeud, etc.).
+- `StatsEvent` : permet de générer des événements liés aux statistiques de l'application (mise à jour des statistiques, etc.).
+
+Ces classes sont utilisées pour générer des événements.
+
+D'autres parties du code peuvent écouter ces événements et réagir en conséquence.
+
+Par exemple, lorsqu'un algorithme de recherche a terminé sa recherche, il va déclencher un événement `StatsEvent`.
+
+Dans les programmes qui gèrent l'interface utilisateur (Navigateur ou Terminal), on peut "écouter" cet événement et utiliser les informations envoyés par l'événement.
+
+## Algorithmes de recherche
+
+Le répertoire `app/algorithms` contient les algorithmes de recherche utilisés dans le projet.
+
+Chaque algorithme est implémenté dans un fichier séparé et contient une fonction de recherche qui prend en paramètre un `graphe` et des `options`, et qui déclenche des événements pour communiquer avec le reste de l'application (`NodeEvent` lors de la découverte d'un noeud, `StatsEvent` lorsque l'algorithme a terminé, qu'il est trouvé le but ou pas.
+
+:::note[Remarque]
+Le fichier `app/algorithms/algorithms.mjs` contient un export des algorithmes de recherche, pour pouvoir les importer plus simplement dans le reste de l'application.
+:::
+
+Le code de l'algorithme BFS (Breadth First Search) est fourni en exemple dans le fichier `app/algorithms/bfs.mjs`.
+
+## Fichiers applicatifs
+
+### functions.mjs
+
+Le fichier `app/functions.mjs` contient les fonctions utilitaires de l'application.
+
+- Une fonction `timer`, qui est utilisée pour pouvoir ralentir le déroulement des algorithmes de recherche.
+- Une fonction `drawPathInConsole`, qui est utilisée pour afficher le chemin trouvé par un algorithme de recherche dans le terminal.
+
+### NodeJS / Terminal
+
+Se basant sur ces classes et fonctions, les fichiers `terminal.mjs` et `terminal-graph-print.mjs` permettent de lancer l'application dans le terminal.
+
+#### terminal-graph-print.mjs
+
+Le fichier `terminal-graph-print.mjs` contient des exemples simples d'utilisation des classes `Graph` et `Node`
+
+Pour le lancer :
+
+```bash
+node terminal-graph-print.mjs
+```
+
+Prenez un moment pour lire le code et comprendre comment les classes et les fonctions sont utilisées pour créer un graphe et afficher ses informations dans le terminal.
+
+#### terminal.mjs
+
+Le fichier `terminal.mjs` contient un scnéario de test de l'application dans le terminal.
+
+Par défaut, il lance 5 scénarios de test, qui crée des grilles aléatoires puis qui testent les algorithmes de recherche (BFS, DFS, Dijkstra, A*).
+
+Ce programme accepte des arguments pour personnaliser les scénarios de test.
+
+Pour le lancer :
+
+```bash
+node terminal.mjs
+```
+
+Les options disponibles pour la commande sont détaillés dans le fichier README.md.
+
+Prenez un moment pour lire le code et comprendre comment les classes et les fonctions sont utilisées pour créer des scénarios de test et les exécuter.
+
+### Navigateur
+
+Le fichier `index.html` contient la structure de la page HTML :
+
+* Les différents éléments de l'interface utilisateur (boutons, grille, etc.)
+* Les liens vers les fichiers CSS et Javascript
+* Un container `<div id="grid-container"></div>` pour accueilir la grille
+* Le chargement du fichier `dom.mjs` qui va générer la grille dans le DOM et gérer les événements
+
+Le fichier `dom.mjs` contient les fonctions de manipulation du DOM :
+
+* La création de la grille dans le DOM
+* La gestion des événements (clics, etc.)
+* La mise à jour de la grille en fonction des événements
+
+Prenez un moment pour lire le code et comprendre comment les fonctions de manipulation du DOM sont organisées.
+
+## Conclusion
+
+Ce projet est un exemple de structure de projet Javascript, utilisant uniquement du Javascript, du HTML et du CSS.
+
+Il est possible de l'éxecuter dans le terminal avec NodeJs, pour tester les algorithmes de recherche, ou bien dans un navigateur pour interagir avec l'interface graphique.
+
+Il est conçu pour être simple et compréhensible, afin de vous permettre de le modifier et de l'adapter à vos besoins.
+
+Vous pouvez le **réutiliser comme base pour votre projet** ou bien vous en inspirer.

@@ -1,0 +1,67 @@
+---
+title: Présentation
+---
+
+Le but de ce TP est de vous proposer une structure basique pour réaliser votre projet d'une part, et de vous entrainer à la programmation des algorithmes de recherche d'autre part.
+
+## Objectifs
+
+- Comprendre la structure et le fonctionnement du projet
+- Comprendre l'implémentation de l'algorithme de recherche BFS
+- Implémenter les autres algorithmes de recherche (DFS, Dijkstra, Best first, A*)
+- Publier le code sur un dépôt Git **privé**
+
+## Prérequis
+
+- Avoir un compte [GitHub](https://github.com/), [Gitlab](https://gitlab.com/) ou [Gitlab de l'UGA](https://gricad-gitlab.univ-grenoble-alpes.fr/)
+- Avoir [VSCode](https://code.visualstudio.com/) ou un autre IDE d'installé
+- Avoir [NodeJs](https://nodejs.org/) d'installé
+
+## Code proposé
+
+Le code proposé est un projet Javascript, utilisant uniquement du Vanilla JS, du HTML et du CSS.
+
+Le projet permet d'être executé :
+
+    * dans le terminal avec NodeJs, permettant d'executer des scénarios de tests multiples
+    * dans un naigateur avec un serveur web pour visualiser le projet dans une page HTML
+
+## Structure du projet
+
+Le projet est structuré de la manière suivante :
+
+```
+.vscode
+    launch.json
+app/
+    algorithms/
+        ...
+    classes/
+        ...
+    events.mjs
+    functions.mjs
+assets/
+    ...
+dom.mjs
+index.html
+terminal-graph-print.mjs
+terminal.mjs
+```
+
+* Le dossier `.vscode` contient un fichier de configuration pour lancer le projet dans le terminal.
+* Le dossier `app` contient les fichiers de l'application.
+    * Le dossier `algorithms` contient les algorithmes de recherche utilisés dans le projet (BFS, DFS, Dijkstra, A*, etc.).   
+    * Le dossier `classes` contient les classes utilisées dans le projet (Graph, Node, etc.).
+    * Le fichier `events.mjs` contient les événements de l'application (Node mise à jour, Etat d'une recherche mise à jour, etc.).
+    * Le fichier `functions.mjs` contient les fonctions utilitaires de l'application (Fonctions utilitaires pour les algorithmes, etc.).
+* Le dossier `assets` contient les fichiers de style et les images utilisées dans le projet.
+* Le fichier `dom.mjs` contient les fonctions de manipulation du DOM.
+* Le fichier `index.html` contient la structure de la page HTML.
+* Le fichier `terminal-graph-print.mjs` contient les fonctions d'affichage du graphe dans le terminal.
+* Le fichier `terminal.mjs` contient les fonctions d'affichage des messages dans le terminal.
+
+## Installation
+
+1. [Téléchargez](/ia/public/search-algorithms-empty.zip) et décompressez le dossier du projet sur votre machine
+2. Ajouter le dossier dans un workspace VSCode (ou autre IDE).
+3. Ouvrez le fichier README.md pour des détails sur l'utilisation du projet.
