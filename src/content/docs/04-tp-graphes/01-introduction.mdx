@@ -4,6 +4,7 @@ sidebar:
   label: Introduction
 ---
 
+import Mermaid from '/src/components/Mermaid.astro';
 import Slide from '/src/components/Slide.astro';
 
 <Slide title="TP Programmation de graphes">
@@ -41,23 +42,27 @@ Un graphe est orienté si les arêtes ont un sens, sinon il est non orienté :
 
 _Exemple de graphe non orienté_
 
-```mermaid
+<Mermaid
+graph={`
 flowchart LR
     0 --- 1
     0 --- 3
     1 --- 2
-```
+`}
+/>
 
 <br/>
 
 _Exemple de graphe orienté_
 
-```mermaid
+<Mermaid
+graph={`
 flowchart LR
 0 --> 1
 0 --> 3
 1 --> 2
-```
+`}
+/>
 
 </Slide>
 <Slide>
@@ -70,23 +75,27 @@ Un graphe est pondéré si les arêtes ont un poids, sinon il est non pondéré 
 
 _Exemple de graphe non pondéré_
 
-```mermaid
+<Mermaid
+graph={`
 flowchart LR
     0 --- 1
     0 --- 3
     1 --- 2
-```
+`}
+/>
 
 <br/>
 
 _Exemple de graphe pondéré_
 
-```mermaid
+<Mermaid
+graph={`
 flowchart LR
 0 -->|5| 1
 0 -->|3| 3
 1 -->|2| 2
-```
+`}
+/>
 
 
 </Slide>
@@ -100,23 +109,27 @@ Un graphe est simple s'il n'a pas de boucles ni d'arêtes multiples, sinon il es
 
 _Exemple de graphe simple_
 
-```mermaid
+<Mermaid
+graph={`
 flowchart LR
     0 --- 1
     0 --- 3
     1 --- 2
-```
+`}
+/>
 
 <br/>
 
 _Exemple de graphe complexe_
 
-```mermaid
+<Mermaid
+graph={`
 flowchart LR
     0 -->|2| 1
     1 -->|3| 0
     1 --- 2
     2 --- 2
-```
+`}
+/>
 
 </Slide>

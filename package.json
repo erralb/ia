@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/starlight": "^0.28.3",
     "astro": "^4.16.3",
+    "mermaid": "10.9.2",
     "playwright": "^1.47.2",
     "remark-mermaidjs": "^6.0.0",
     "sharp": "^0.32.5",

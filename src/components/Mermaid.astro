@@ -1,0 +1,15 @@
+---
+export interface Props {
+  graph?: string;
+}
+
+const { graph } = Astro.props;
+---
+
+<pre class="mermaid">
+    {graph}
+</pre>
+
+<script>
+  import mermaid from "mermaid";
+</script>
