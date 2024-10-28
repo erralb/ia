@@ -89,6 +89,13 @@ export default defineConfig({
 						directory: '06-tp-projet',
 					}
 				},
+				{
+					label: '7. Logique',
+					collapsed: true,
+					autogenerate: {
+						directory: '07-logique',
+					}
+				},
 			],
 		}),
 	],
