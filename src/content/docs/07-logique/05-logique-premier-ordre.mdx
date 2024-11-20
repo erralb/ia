@@ -5,7 +5,224 @@ sidebar:
   hidden: true
 ---
 
+import Table from '/src/components/Table.astro'
+
+## Principe de résolution - Étapes
+
+La résolution d'une formule en logique de premier ordre se fait en plusieurs étapes :
+
+1. Mettre en forme Prénexe
+2. Skolemisation
+3. Mettre en forme normale conjonctive
+4. Éliminer les quantificateurs universels
+5. Résoudre
+6. Vérifier la contradiction
+7. 10. Conclure
+
+## Exemple
+
+Soit la formule `φ` :
+
+```
+φ = (H1 ∧ H2 ∧ H3 → C)
+```
+
+Et les hypothèses suivantes :
+
+```
+H1 : ∀ x (P(x) → Q(x))
+H2 : ∀ x (¬P(x))
+H3 : ∀ x (Q(x))
+```
+
+Si on souhaite montrer que `φ` est un _théorème_ (`φ` est toujours valide), on peut le démontrer par **contradiction** :
+Si `¬φ` est contradictoire, alors `φ` est un théorème.
+
+On souhaite donc montrer que la formule :
+
+```
+H1 ∧ H2 ∧ H3 ∧ ¬C 
+```
+est contradictoire.
+
+### Etape 1 : Mettre en forme Prénexe
+
+Une formule de la logique du premier ordre est en forme prénexe si tous ses quantificateurs `∀` et `∃` apparaissent à gauche dans cette formule.
+
+Pour mettre en forme Prénexe, on utilise les règles de transformations suivantes :
+
+<Table
+  title="Règles de transformations en forme prénexe"
+  headers={["Forme initiale", "Forme prénexe"]}
+  rows={
+    [
+      ["¬∀xF", "∃x¬F"],
+      ["(∀xF) ∧ G", "∀x (F ∧ G)"],
+      ["(∀xF) ∨ G", "∀x (F ∨ G)"],
+      ["(∀xF) → G", "∃x (F → G)"],
+      ["G ∧ (∀xF)", "∀x (G ∧ F)"],
+      ["G ∨ (∀xF)", "∀x (G ∨ F)"],
+      ["G → (∀xF)", "∀x (G → F)"],
+      ["¬∃xF", "∀x¬F"],
+      ["(∃xF) ∧ G", "∃x (F ∧ G)"],
+      ["(∃xF) ∨ G", "∃x (F ∨ G)"],
+      ["(∃xF) → G", "∀x (F → G)"],
+      ["G ∧ (∃xF)", "∃x (G ∧ F)"],
+      ["G ∨ (∃xF)", "∃x (G ∨ F)"],
+      ["G → (∃xF)", "∃x (G → F)"]
+    ]
+  }
+/>
+
+Dans notre exemple, rien ne change car la formule est déjà en forme prénexe.
+
+### Etape 5 : Skolemisation
+
+La skolémisation est une méthode de transformation d'une formule logique en forme normale prénexe. Elle consiste à éliminer les quantificateurs existentiels en les remplaçant par des fonctions de Skolem.
+
+<Table
+  title="Règles de transformations en forme de Skolem"
+  headers={["Forme initiale", "Forme skolémisée"]}
+  rows={
+    [
+      ["∃x F", "F[x/t]"],
+    ]
+  }
+/>
+
+### Etape 6 : Mettre en forme normale conjonctive
+
+∀x (P(x) ∨ Q(x)) ≡ ∀x P(x) ∨ ∀x Q(x)
+
+### Etape 7 : Éliminer les quantificateurs universels.
+
+∀x P(x) ≡ P(a)
+
+
+
+
+
 - Présentation
 - Syntaxe
 - Formes Prenex, Skolem, CNF
 - Résolutions
+
+Le chemin jusqu’à la forme clausale pour un système de résolution est le suivant :
+
+1. Forme normale prénexe
+
+2. Forme normale de Skolem
+
+3. Forme normale conjonctive
+
+4. Forme clausale
+
+## Présentation
+
+La logique de premier ordre est une extension de la logique propositionnelle
+
+- Les variables propositionnelles sont remplacées par des variables de prédicats
+- Les connecteurs logiques sont les mêmes
+- Les quantificateurs existentiels et universels sont ajoutés
+
+## Syntaxe
+
+- Les variables de prédicats sont des symboles qui représentent des propriétés ou des relations
+- Les constantes sont des symboles qui représentent des objets
+- Les fonctions sont des symboles qui représentent des opérations
+- Les prédicats sont des symboles qui représentent des relations
+- Les termes sont des expressions qui représentent des objets
+- Les formules atomiques sont des expressions qui représentent des relations
+- Les formules sont des expressions qui représentent des propriétés
+
+## Formes Prenex, Skolem, CNF
+
+Soit un prédicat « chemin » d’arité 2, une fonction « voisin » d’arité 1, les variables ’a, x, y, z’, et une constante « ici ». On définit les formules suivantes :
+
+```
+φ1 = ∀x chemin(x, voisin(x))
+φ2 = ∀xyz (chemin(x, z) ∧ chemin(z, y) → chemin(x, y))
+φ = ∃a chemin(ici, voisin(voisin(a)))
+
+```
+
+1. Mettre les quantificateurs au début de la formule : mise sous forme prénexe
+
+_À partir d’une formule F, on peut construire une formule F′ sémantiquement équivalente qui soit sous forme prénexe._
+
+
+2. Supprimer les quantificateurs existentiels (∃) : skolémisation
+3. Passer en forme normale conjonctive
+
+
+### Forme normale prénexe
+
+- Les quantificateurs sont placés en tête de la formule
+- Les quantificateurs universels sont placés en premier
+- Les quantificateurs existentiels sont placés en dernier
+
+#### Transformations 
+
+<Table
+  title="Transformations"
+  headers={["Formule", "Transformation"]}
+  rows={
+    [
+      ["¬∀x φ", "∃x ¬φ"],
+      ["¬∃x φ", "∀x ¬φ"],
+      ["φ ∨ ∀x φ′", "∀x (φ ∨ φ′)"],
+      ["φ ∨ ∃x φ′", "∃x (φ ∨ φ′)"],
+      ["∀x φ ∨ φ′", "∀x (φ ∨ φ′)"],
+      ["∃x φ ∨ φ′", "∃x (φ ∨ φ′)"],
+      ["φ ∧ ∀x φ′", "∀x (φ ∧ φ′)"],
+      ["φ ∧ ∃x φ′", "∃x (φ ∧ φ′)"],
+      ["∀x φ ∧ φ′", "∀x (φ ∧ φ′)"],
+      ["∃x φ ∧ φ′", "∃x (φ ∧ φ′)"],
+      ["φ → ∀x φ′", "∀x (φ → φ′)"],
+      ["φ → ∃x φ′", "∃x (φ → φ′)"],
+      ["∀x φ → φ′", "∃x (φ → φ′)"],
+      ["∃x φ → φ′", "∀x (φ → φ′)"]
+    ]
+  }
+/>
+
+
+#### Exemples
+
+Exemple de prédicat qui n'est pas en forme Prénexe :
+
+
+
+
+
+$$
+\forall x \exists y (P(x) \land Q(y))
+$$
+
+$$
+\forall x \exists y P(x) \land \forall x \exists y Q(y)
+$$
+
+$$
+\forall x \forall y P(x) \land \forall x \forall y Q(y)
+$$
+
+### Forme normale de Skolem
+
+- Les quantificateurs existentiels sont éliminés
+- Les variables existentielles sont remplacées par des fonctions de Skolem
+
+### Forme normale conjonctive
+
+- Les connecteurs logiques sont réduits à la conjonction
+- Les formules sont conjonctives
+
+### Forme clausale
+
+- Les formules sont des disjonctions de littéraux
+- Les formules sont des clauses
+
+## Résolutions
+
+- La résolution est une méthode de preuve pour les formules en forme clausale
+- La résolution est basée sur la résolution de clauses
