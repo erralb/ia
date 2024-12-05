@@ -96,6 +96,13 @@ export default defineConfig({
 						directory: '07-logique',
 					}
 				},
+				{
+					label: '8. SMA',
+					collapsed: true,
+					autogenerate: {
+						directory: '08-sma',
+					}
+				},
 			],
 		}),
 	],
