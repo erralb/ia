@@ -103,6 +103,13 @@ export default defineConfig({
 						directory: '08-sma',
 					}
 				},
+				{
+					label: '9. Examens',
+					collapsed: true,
+					autogenerate: {
+						directory: '09-examens',
+					}
+				},
 			],
 		}),
 	],
